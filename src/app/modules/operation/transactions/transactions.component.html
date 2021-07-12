@@ -1,0 +1,15 @@
+<div class="card">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <h5>
+            Últimas transferencias realizadas
+        </h5>
+
+        <button class="btn btn-lg btn-primary" (click)="newTransfer()">
+            <fa-icon [icon]="[ 'fas', 'hand-holding-usd' ]"></fa-icon>
+            <span class="ml-2">
+                TRANSFERIR
+            </span>
+        </button>
+    </div>
+    <app-transactions-list [transactions]="transactions"></app-transactions-list>
+</div>

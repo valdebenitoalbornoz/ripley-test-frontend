@@ -1,0 +1,41 @@
+<form [formGroup]="form" (ngSubmit)="sendTransaction()">
+    <div class="modal-header">
+        <h3 class="modal-title">
+            Nueva Transferencia
+        </h3>
+        <button type="button" tabindex="-1" (click)="close()" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+        <div class="mb-3" *ngIf="!selectedContact">
+            <label for="receiver" class="form-label">Destinatario</label>
+            <div class="input-group">
+                <input type="text" class="form-control form-control-lg" [ngbTypeahead]="search"
+                    [inputFormatter]="formatter" [showHint]="true" [resultFormatter]="formatter" [autocomplete]="'off'"
+                    formControlName="receiver" (selectItem)="onSelectContact($event)" [editable]='false'
+                    placeholder="{{ contacts.length ? 'Busque un destinatario por nombre o rut' : 'No tiene destinatarios' }}" />
+                <button class="btn btn-primary btn-lg" type="button" (click)="newContact()">
+                    <fa-icon [icon]="[ 'fas', 'plus']"></fa-icon>
+                    <span class="ml-2">
+                        AGREGAR DESTINATARIO
+                    </span>
+                </button>
+            </div>
+        </div>
+        <div class="mb-3">
+            <app-contact-detail [contact]="selectedContact" [showResetButton]="showResetButton" (onreset)="setReceiver(null);"></app-contact-detail>
+        </div>
+        <div class="mb-3">
+            <label for="amount" placeholder="Contraseña" class="form-label">Monto</label>
+            <input type="number" formControlName="amount" placeholder="Ingrese el monto en pesos"
+                class="form-control form-control-lg" id="amount">
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="submit" [disabled]="form.invalid" class="btn btn-primary btn-lg mt-4">
+            <fa-icon [icon]="[ 'fas', 'hand-holding-usd' ]"></fa-icon>
+            <span class="ml-3">
+                Realizar Transferencia
+            </span>
+        </button>
+    </div>
+</form>

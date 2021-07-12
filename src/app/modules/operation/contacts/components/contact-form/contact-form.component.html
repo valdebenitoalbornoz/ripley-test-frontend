@@ -1,0 +1,71 @@
+<form [formGroup]="form" (ngSubmit)="newContact()">
+    <div class="modal-header">
+        <h3 class="modal-title">
+            Nuevo Destinatario
+        </h3>
+        <button type="button" (click)="close()" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+        <div class="form-group mb-2">
+            <label for="contact_rut" class="form-label form-label-required">Rut</label>
+            <input id="contact_rut" maxlength="10" type="text" class="form-control form-control-lg"
+            [ngClass]="{
+                'border-danger': form.controls.rut.invalid && form.controls.rut.touched
+            }" formControlName="rut"/>
+        </div>
+        <div class="form-group mb-2">
+            <label for="contact_name" class="form-label form-label-required">Nombre y Apellido</label>
+            <input id="contact_name" type="text" class="form-control form-control-lg" [ngClass]="{
+                'border-danger': form.controls.name.invalid && form.controls.name.touched
+            }" formControlName="name"/>
+        </div>
+        <div class="form-group mb-2">
+            <label for="contact_email" class="form-label">Email</label>
+            <input id="contact_email" type="email" class="form-control form-control-lg" formControlName="email" [ngClass]="{
+                'border-danger': form.controls.email.invalid && form.controls.email.touched
+            }"/>
+        </div>
+        <div class="form-group mb-2">
+            <label for="contact_phone" class="form-label">Teléfono</label>
+            <input id="contact_phone" type="phone" class="form-control form-control-lg" formControlName="phone"/>
+        </div>
+        <div class="form-group mb-2">
+            <label for="contact_bank" class="form-label form-label-required">Banco</label>
+            <select id="contact_bank" formControlName="bank" 
+                class="form-select form-select-lg"
+                [ngClass]="{
+                    'border-danger': form.controls.bank.invalid && form.controls.bank.touched
+                }">
+                <option [value]="bank.name" *ngFor="let bank of banks">
+                    {{ bank.name }}
+                </option>
+            </select>
+        </div>
+        <div class="form-group mb-2">
+            <label for="contact_accountType" class="form-label form-label-required">Tipo de Cuenta</label>
+            <select id="contact_accountType" formControlName="accountType" class="form-select form-select-lg"
+            [ngClass]="{
+                'border-danger': form.controls.accountType.invalid && form.controls.accountType.touched
+            }"
+            >
+                <option [value]="accountType" *ngFor="let accountType of accountTypes">
+                    {{ accountType }}
+                </option>
+            </select>
+        </div>
+        <div class="form-group mb-2">
+            <label for="contact_accountNumber" class="form-label form-label-required">Número de Cuenta</label>
+            <input id="contact_accountNumber" type="text" class="form-control form-control-lg" [ngClass]="{
+                'border-danger': form.controls.accountNumber.invalid && form.controls.accountNumber.touched
+            }" formControlName="accountNumber"/>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="submit" [disabled]="form.invalid" class="btn btn-primary btn-lg mt-4">
+            <fa-icon [icon]="[ 'fas', 'address-book' ]"></fa-icon>
+            <span class="ml-3">
+                Guardar Destinatario
+            </span>
+        </button>
+    </div>
+</form>

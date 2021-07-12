@@ -1,0 +1,22 @@
+<div class="card" *ngIf="contact">
+    <div class="card-body">
+        <div class="d-flex justify-content-between align-items-center">
+            <h5 class="card-title">{{ contact.name }}</h5>
+            <p class="card-subtitle card-muted">{{ contact.rut }}</p>
+        </div>
+        <div class="d-flex justify-content-between align-items-center">
+            <div>
+                {{ contact.bank }}
+            </div>
+            <div>
+                {{ contact.accountType }}
+            </div>
+            <div>
+                {{ contact.accountNumber }}
+            </div>
+        </div>
+    </div>
+    <div class="card-footer text-center" *ngIf="showResetButton">
+        <button (click)="reset()" class="btn btn-sm btn-secondary">VOLVER A SELECCIONAR DESTINATARIO</button>
+    </div>
+</div>

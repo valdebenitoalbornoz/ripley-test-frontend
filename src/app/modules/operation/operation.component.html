@@ -1,0 +1,14 @@
+
+<nav class="navbar navbar-primary bg-light text-light">
+  <div class="container-fluid">
+    <a class="navbar-brand text-primary" href="#">
+        <fa-icon [icon]="[ 'fas', 'piggy-bank' ]"  size="2x"></fa-icon>
+    </a>s
+    <a class="nav-link" [routerLink]="[ 'contacts' ]">CONTACTOS</a>
+    <a class="nav-link" [routerLink]="[ 'transactions' ]">TRANSACCIONES</a>
+    <button class="btn btn-link" (click)="logout()">SALIR</button>
+  </div>
+</nav>
+
+
+<router-outlet></router-outlet>

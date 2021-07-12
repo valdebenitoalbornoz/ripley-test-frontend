@@ -1,0 +1,42 @@
+<table class="table table-bordered table-primary table-striped">
+    <thead>
+        <tr>
+            <th>
+                NOMBRE DESTINATARIO
+            </th>
+            <th>
+                RUT DESTINATARIO
+            </th>
+            <th>
+                FECHA
+            </th>
+            <th>
+                MONTO
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let transaction of transactions">
+            <td>
+                {{ transaction.receiver?.name }}
+            </td>
+            <td>
+                {{ transaction.receiver?.rut }}
+            </td>
+            <td>
+                {{ transaction.transactionDate | date: 'dd-MM-yyyy HH:mm:ss' }}
+            </td>
+            <td>
+               $ {{ transaction.amount }}
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="card border-0" *ngIf="transactions.length === 0">
+    <div class="card-body text-center">
+        <h3 class="text-secondary">
+            NO TIENE TRANSACCIONES REALIZADAS
+        </h3>
+    </div>
+</div>

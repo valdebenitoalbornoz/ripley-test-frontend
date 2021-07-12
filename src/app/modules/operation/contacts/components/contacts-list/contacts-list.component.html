@@ -1,0 +1,61 @@
+<table class="table table-bordered table-primary table-striped">
+    <thead>
+        <tr>
+            <th>
+                RUT
+            </th>
+            <th>
+                NOMBRE
+            </th>
+            <th>
+                BANCO
+            </th>
+            <th>
+                TIPO CUENTA
+            </th>
+            <th>
+                N° CUENTA
+            </th>
+            <th>
+                FECHA INGRESO
+            </th>
+            <th>
+                
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let contact of contacts">
+            <td>
+                {{ contact.rut }}
+            </td>
+            <td>
+                {{ contact.name }}
+            </td>
+            <td>
+                {{ contact.bank }}
+            </td>
+            <td>
+                {{ contact.accountType }}
+            </td>
+            <td>
+                {{ contact.accountNumber }}
+            </td>
+            <td>
+                {{ contact.createdAt | date: 'dd-MM-yyyy'}}
+            </td>
+            <td class="text-center">
+                <button class="btn btn-primary btn-sm" (click)="trasferTo(contact);">
+                    <fa-icon [icon]="[ 'fas', 'hand-holding-usd']" ngbTooltip="Transferir"></fa-icon>
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div class="card border-0" *ngIf="contacts.length === 0">
+    <div class="card-body text-center">
+        <h3 class="text-secondary">
+            NO TIENE CONTACTOS CREADOS
+        </h3>
+    </div>
+</div>

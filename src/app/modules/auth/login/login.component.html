@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="card login-card">
+        <div class="card-body text-center">
+            <h5 class="card-title text-center">
+                <fa-icon [icon]="[ 'fas', 'piggy-bank' ]"></fa-icon>
+                <span class="ml-3">
+                    Inicie sesión
+                </span>
+            </h5>
+            <form [formGroup]="form" (ngSubmit)="login()">
+                <div class="mb-3">
+                    <label for="rut" class="form-label">RUT</label>
+                    <input type="text" formControlName="rut" class="form-control form-control-lg" placeholder="Ingrese su Rut" id="rut" aria-describedby="RUT">
+                </div>
+                <div class="mb-3">
+                    <label for="pass" placeholder="Contraseña" class="form-label">Password</label>
+                    <input type="password" formControlName="password" placeholder="Ingrese su contraseña" class="form-control form-control-lg" id="pass">
+                </div>
+                <div class="mt-4 d-flex justify-content-around align-items-center">
+                    <button type="submit" class="btn btn-lg btn-primary">
+                        <fa-icon [icon]="[ 'fas', 'hand-holding-usd' ]"></fa-icon>
+                        <span class="ml-3">
+                            Ingresar
+                        </span>
+                    </button>
+                    <button type="button" class="btn btn-lg btn-secondary" [routerLink]="[ '/register' ]">
+                        <fa-icon [icon]="[ 'fas', 'hand-holding-usd' ]"></fa-icon>
+                        <span class="ml-3">
+                            Crear Cuenta
+                        </span>
+                    </button>
+
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
