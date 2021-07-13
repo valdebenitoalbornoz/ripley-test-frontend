@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  apiUrl: 'https://ripley-test-api-rest.herokuapp.com'
 };
