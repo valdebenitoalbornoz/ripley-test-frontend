@@ -39,6 +39,7 @@ export class RegisterComponent implements OnInit {
     if (value.password !== value.password2) {
       return { password: 'Las contraseñas no coinciden' };
     }
+
     return null;
 
   }
@@ -47,8 +48,8 @@ export class RegisterComponent implements OnInit {
     this.form = this._formBuilder.group({
       name: [ null, Validators.required ],
       rut: [ null, Validators.required ],
-      password: [ null, Validators.required ],
-      password2: [ null, Validators.required ],
+      password: [ null, [ Validators.required, Validators.minLength(4)] ],
+      password2: [ null, [ Validators.required, Validators.minLength(4)] ],
     }, { validator: this.validator });
   }
 

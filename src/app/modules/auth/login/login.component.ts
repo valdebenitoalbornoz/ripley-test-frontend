@@ -16,8 +16,8 @@ export class LoginComponent implements OnInit {
     private _router: Router
   ) {
     this.form = _formBuilder.group({
-      rut: [ '16394666-1', Validators.required ],
-      password: [ '123456', Validators.required ],
+      rut: [ null, Validators.required ],
+      password: [ null, Validators.required ],
     });
   }
 

@@ -1,12 +1,13 @@
 <div class="container">
     <div class="card login-card">
         <div class="card-body text-center">
-            <h5 class="card-title text-center">
+            <h3 class="card-title text-center">
                 <fa-icon [icon]="[ 'fas', 'piggy-bank' ]"></fa-icon>
                 <span class="ml-3">
                     Inicie sesión
                 </span>
-            </h5>
+            </h3>
+            <hr>
             <form [formGroup]="form" (ngSubmit)="login()">
                 <div class="mb-3">
                     <label for="rut" class="form-label">RUT</label>
@@ -14,7 +15,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="pass" placeholder="Contraseña" class="form-label">Password</label>
-                    <input type="password" formControlName="password" placeholder="Ingrese su contraseña" class="form-control form-control-lg" id="pass">
+                    <input type="password" formControlName="password" placeholder="Ingrese su contraseña" autocomplete="off" class="form-control form-control-lg" id="pass">
                 </div>
                 <div class="mt-4 d-flex justify-content-around align-items-center">
                     <button type="submit" class="btn btn-lg btn-primary">
