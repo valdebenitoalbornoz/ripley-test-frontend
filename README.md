@@ -10,4 +10,5 @@ Para ver la aplicación funcionando.
 
 ## BACKEND REPOSITORY
 
+https://github.com/valdebenitoalbornoz/ripley-test-backend
 
