@@ -54,6 +54,12 @@ export class RegisterComponent implements OnInit {
   }
 
   save() {
+    swal.fire({
+      title: 'Registrando...',
+      allowEscapeKey: false,
+      allowOutsideClick: false
+    });
+    swal.showLoading();
     this._service.register(this.form.value)
       .subscribe((res: any) => {
         if (res.done) {

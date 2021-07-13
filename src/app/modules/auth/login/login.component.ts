@@ -30,6 +30,12 @@ export class LoginComponent implements OnInit {
       return;
     }
     const { rut, password } = this.form.value;
+    swal.fire({
+      title: 'Ingresando...',
+      allowEscapeKey: false,
+      allowOutsideClick: false
+    });
+    swal.showLoading();
     this._service.login(rut, password)
       .subscribe((res: any) => {
         if (res.done) {
@@ -46,7 +52,7 @@ export class LoginComponent implements OnInit {
       }, error => { 
         swal.fire({
           icon: 'error',
-          text: error.error.message,
+          text: 'Ha ocurrido un error',
           title: 'Error'
         });
         this.form.reset({ password: null });

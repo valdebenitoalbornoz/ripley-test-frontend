@@ -42,6 +42,12 @@ export class ContactFormComponent implements OnInit {
       this.form.markAllAsTouched();
       return;
     }
+    swal.fire({
+      title: 'Agregando...',
+      allowEscapeKey: false,
+      allowOutsideClick: false
+    });
+    swal.showLoading();
     this._service.addContacts(this.form.value)
       .subscribe((res: any) => {
         swal.fire({

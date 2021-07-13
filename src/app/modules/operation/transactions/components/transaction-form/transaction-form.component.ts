@@ -90,6 +90,12 @@ export class TransactionFormComponent implements OnInit {
     if (response.dismiss) {
       return;
     }
+    swal.fire({
+      title: 'Ingresando...',
+      allowEscapeKey: false,
+      allowOutsideClick: false
+    });
+    swal.showLoading();
     this._service.sendTransaction(this.form.value)
       .subscribe((res: any) => {
         swal.fire({
