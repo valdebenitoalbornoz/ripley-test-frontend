@@ -3,12 +3,15 @@
   <div class="container-fluid">
     <a class="navbar-brand text-primary" href="#">
         <fa-icon [icon]="[ 'fas', 'piggy-bank' ]"  size="2x"></fa-icon>
-    </a>s
-    <a class="nav-link" [routerLink]="[ 'contacts' ]">CONTACTOS</a>
-    <a class="nav-link" [routerLink]="[ 'transactions' ]">TRANSACCIONES</a>
-    <button class="btn btn-link" (click)="logout()">SALIR</button>
+    </a>
+    <div class="d-flex">
+      <a class="nav-link" [routerLink]="[ 'contacts' ]">CONTACTOS</a>
+      <a class="nav-link" [routerLink]="[ 'transactions' ]">TRANSACCIONES</a>
+      <button class="btn btn-link" (click)="logout()">SALIR</button>
+    </div>
   </div>
 </nav>
 
-
 <router-outlet></router-outlet>
+
+
